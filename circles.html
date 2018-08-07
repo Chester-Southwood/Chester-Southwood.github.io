@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" type="text/css" href="./css/src/circles.css">
+        <script type="text/javascript" src="./js/lib/dist/paper-full.js"></script>
+        <script type="text/javascript" src="./js/lib/howlerjs/howler.js-master/src/howler.core.js"></script>
+        <script type="text/paperscript" canvas="myCanvas">
+
+        var circles = [];
+
+        var filenames=[], foldernames=[];
+
+        function onKeyDown(event)
+        {
+            /*console.log(Point.random().x);
+            new Path.Circle(new Point(1300 * Point.random().x, 900 * Point.random().y), 10).fillColor = "blue";
+            console.log(view.size);*/
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var newPoint = maxPoint * randomPoint;
+            var newCircle = new Path.Circle(newPoint, 50);
+            var red = Math.floor(Math.random() * 255);
+            var green = Math.floor(Math.random() * 255);
+            var blue = Math.floor(Math.random() * 255);
+            console.log(red);
+            console.log(green);
+            console.log(blue);
+
+            newCircle.fillColor = "rgb(" + red + ", " + green + ", " + blue + " )";
+            circles.push(newCircle);
+            var sound = new Howl({
+                src: ['./Sounds/sounds/awesomeNephew.mp3']
+              });
+               
+              sound.play();
+        }
+
+        function onclick(event)
+        {
+            /*console.log(Point.random().x);
+            new Path.Circle(new Point(1300 * Point.random().x, 900 * Point.random().y), 10).fillColor = "blue";
+            console.log(view.size);*/
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var newPoint = maxPoint * randomPoint;
+            var newCircle = new Path.Circle(newPoint, 50);
+            var red = Math.floor(Math.random() * 255);
+            var green = Math.floor(Math.random() * 255);
+            var blue = Math.floor(Math.random() * 255);
+            console.log(red);
+            console.log(green);
+            console.log(blue);
+
+            newCircle.fillColor = "rgb(" + red + ", " + green + ", " + blue + " )";
+            circles.push(newCircle);
+            var sound = new Howl({
+                src: ['./Sounds/sounds/awesomeNephew.mp3']
+              });
+               
+              sound.play();
+        }
+
+        myCanvas.addEventListener('click',function(){
+
+                /*console.log(Point.random().x);
+                new Path.Circle(new Point(1300 * Point.random().x, 900 * Point.random().y), 10).fillColor = "blue";
+                console.log(view.size);*/
+                var maxPoint = new Point(view.size.width, view.size.height);
+                var randomPoint = Point.random();
+                var newPoint = maxPoint * randomPoint;
+                var newCircle = new Path.Circle(newPoint, 50);
+                var red = Math.floor(Math.random() * 255);
+                var green = Math.floor(Math.random() * 255);
+                var blue = Math.floor(Math.random() * 255);
+                console.log(red);
+                console.log(green);
+                console.log(blue);
+    
+                newCircle.fillColor = "rgb(" + red + ", " + green + ", " + blue + " )";
+                circles.push(newCircle);
+                var sound = new Howl({
+                    src: ['./Sounds/sounds/awesomeNephew.mp3']
+                  });
+                   
+                  sound.play();
+            
+        }, false)
+
+        function onFrame(event)
+        {
+            for(var i = 0; i < circles.length; i++)
+            {
+                circles[i].fillColor.hue += 1;
+                circles[i].scale(.9);
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" resize></canvas>
+    </body>
+</html>
